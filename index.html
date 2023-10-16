@@ -9,8 +9,81 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="style.css" />
-    <title>Vite App</title>
+    <title>Calculator</title>
   </head>
-  <body></body>
+  <body class="h-screen w-screen max-w-screen dark:bg-zinc-900 dark:text-white">
+    <main class="w-full h-full">
+      <div class="h-1/4 w-full flex flex-col justify-end">
+        <div class="flex items-end justify-end text-3xl max-w-full">12 *</div>
+        <div class="flex items-end justify-end text-6xl max-w-full">786</div>
+      </div>
+      <div class="grid grid-rows-5 gap-[1px] w-full h-3/4">
+        <div class="grid grid-cols-4 gap-[1px] cursor-pointer text-2xl">
+          <div
+            class="dark:bg-zinc-800 w-full h-full flex items-center justify-center"
+          >
+            AC
+          </div>
+          <div
+            class="dark:bg-zinc-800 w-full h-full flex items-center justify-center"
+          >
+            <i class="fa-solid fa-circle-minus"></i>
+          </div>
+          <div
+            class="dark:bg-zinc-800 w-full h-full flex items-center justify-center"
+          >
+            <i class="fa-solid fa-percent"></i>
+          </div>
+          <div
+            class="bg-amber-500 w-full h-full flex items-center justify-center"
+          >
+            <i class="fa-solid fa-divide"></i>
+          </div>
+        </div>
+        <div class="grid grid-cols-4 gap-[1px] cursor-pointer text-2xl">
+          <div class="dark:bg-zinc-600 flex items-center justify-center">7</div>
+          <div class="dark:bg-zinc-600 flex items-center justify-center">8</div>
+          <div class="dark:bg-zinc-600 flex items-center justify-center">9</div>
+          <div class="bg-amber-500 flex items-center justify-center">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+        <div class="grid grid-cols-4 gap-[1px] cursor-pointer text-2xl">
+          <div class="dark:bg-zinc-600 flex items-center justify-center">4</div>
+          <div class="dark:bg-zinc-600 flex items-center justify-center">5</div>
+          <div class="dark:bg-zinc-600 flex items-center justify-center">6</div>
+          <div class="bg-amber-500 flex items-center justify-center">
+            <i class="fa-solid fa-minus"></i>
+          </div>
+        </div>
+        <div class="grid grid-cols-4 gap-[1px] cursor-pointer text-2xl">
+          <div class="dark:bg-zinc-600 flex items-center justify-center">1</div>
+          <div class="dark:bg-zinc-600 flex items-center justify-center">2</div>
+          <div class="dark:bg-zinc-600 flex items-center justify-center">3</div>
+          <div class="bg-amber-500 flex items-center justify-center">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+        </div>
+        <div class="grid grid-cols-4 gap-[1px] cursor-pointer text-2xl">
+          <div class="dark:bg-zinc-600 flex items-center justify-center">
+            <i id="themeBtn" class="fa-solid fa-moon"></i>
+          </div>
+          <div class="dark:bg-zinc-600 flex items-center justify-center">0</div>
+          <div class="dark:bg-zinc-600 flex items-center justify-center">.</div>
+          <div class="bg-amber-500 flex items-center justify-center">
+            <i class="fa-solid fa-equals"></i>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
 </html>
