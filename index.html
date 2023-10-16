@@ -19,68 +19,20 @@
     <link rel="stylesheet" href="style.css" />
     <title>Calculator</title>
   </head>
-  <body class="h-screen w-screen max-w-screen dark:bg-zinc-900 dark:text-white">
+  <body
+    class="h-screen w-screen max-w-screen dark:bg-zinc-950 bg-zinc-100 dark:text-white flex justify-center items-center"
+  >
     <main class="w-full h-full">
-      <div class="h-1/4 w-full flex flex-col justify-end">
-        <div class="flex items-end justify-end text-3xl max-w-full">12 *</div>
-        <div class="flex items-end justify-end text-6xl max-w-full">786</div>
-      </div>
-      <div class="grid grid-rows-5 gap-[1px] w-full h-3/4">
-        <div class="grid grid-cols-4 gap-[1px] cursor-pointer text-2xl">
+      <div
+        class="w-16 mx-auto mt-10 bg-white dark:bg-zinc-900 rounded-full overflow-hidden"
+      >
+        <div class="flex items-center gap-4 transition duration-300">
+          <div><i class="fa-solid fa-sun shrink-0 px-1"></i></div>
           <div
-            class="dark:bg-zinc-800 w-full h-full flex items-center justify-center"
-          >
-            AC
-          </div>
-          <div
-            class="dark:bg-zinc-800 w-full h-full flex items-center justify-center"
-          >
-            <i class="fa-solid fa-circle-minus"></i>
-          </div>
-          <div
-            class="dark:bg-zinc-800 w-full h-full flex items-center justify-center"
-          >
-            <i class="fa-solid fa-percent"></i>
-          </div>
-          <div
-            class="bg-amber-500 w-full h-full flex items-center justify-center"
-          >
-            <i class="fa-solid fa-divide"></i>
-          </div>
-        </div>
-        <div class="grid grid-cols-4 gap-[1px] cursor-pointer text-2xl">
-          <div class="dark:bg-zinc-600 flex items-center justify-center">7</div>
-          <div class="dark:bg-zinc-600 flex items-center justify-center">8</div>
-          <div class="dark:bg-zinc-600 flex items-center justify-center">9</div>
-          <div class="bg-amber-500 flex items-center justify-center">
-            <i class="fa-solid fa-xmark"></i>
-          </div>
-        </div>
-        <div class="grid grid-cols-4 gap-[1px] cursor-pointer text-2xl">
-          <div class="dark:bg-zinc-600 flex items-center justify-center">4</div>
-          <div class="dark:bg-zinc-600 flex items-center justify-center">5</div>
-          <div class="dark:bg-zinc-600 flex items-center justify-center">6</div>
-          <div class="bg-amber-500 flex items-center justify-center">
-            <i class="fa-solid fa-minus"></i>
-          </div>
-        </div>
-        <div class="grid grid-cols-4 gap-[1px] cursor-pointer text-2xl">
-          <div class="dark:bg-zinc-600 flex items-center justify-center">1</div>
-          <div class="dark:bg-zinc-600 flex items-center justify-center">2</div>
-          <div class="dark:bg-zinc-600 flex items-center justify-center">3</div>
-          <div class="bg-amber-500 flex items-center justify-center">
-            <i class="fa-solid fa-plus"></i>
-          </div>
-        </div>
-        <div class="grid grid-cols-4 gap-[1px] cursor-pointer text-2xl">
-          <div class="dark:bg-zinc-600 flex items-center justify-center">
-            <i id="themeBtn" class="fa-solid fa-moon"></i>
-          </div>
-          <div class="dark:bg-zinc-600 flex items-center justify-center">0</div>
-          <div class="dark:bg-zinc-600 flex items-center justify-center">.</div>
-          <div class="bg-amber-500 flex items-center justify-center">
-            <i class="fa-solid fa-equals"></i>
-          </div>
+            id="themeBtn"
+            class="h-5 w-5 rounded-full bg-zinc-400 dark:bg-zinc-600 shrink-0"
+          ></div>
+          <div><i class="fa-solid fa-moon shrink-0 px-1"></i></div>
         </div>
       </div>
     </main>
