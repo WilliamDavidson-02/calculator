@@ -6,3 +6,7 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+.number {
+  @apply p-3 text-4xl w-full h-20 flex items-center justify-center rounded-3xl;
+}

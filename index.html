@@ -22,17 +22,85 @@
   <body
     class="h-screen w-screen max-w-screen dark:bg-zinc-950 bg-zinc-100 dark:text-white flex justify-center items-center"
   >
-    <main class="w-full h-full">
+    <main
+      class="w-full max-w-[786px] h-full flex flex-col justify-between py-12"
+    >
       <div
-        class="w-16 mx-auto mt-10 bg-white dark:bg-zinc-900 rounded-full overflow-hidden"
+        class="w-16 mx-auto bg-white dark:bg-zinc-900 rounded-full overflow-hidden"
       >
         <div class="flex items-center gap-4 transition duration-300">
-          <div><i class="fa-solid fa-sun shrink-0 px-1"></i></div>
+          <div>
+            <i class="fa-solid fa-sun shrink-0 px-1 text-yellow-400"></i>
+          </div>
           <div
             id="themeBtn"
             class="h-5 w-5 rounded-full bg-zinc-400 dark:bg-zinc-600 shrink-0"
           ></div>
-          <div><i class="fa-solid fa-moon shrink-0 px-1"></i></div>
+          <div>
+            <i class="fa-solid fa-moon shrink-0 px-1 text-blue-600"></i>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <h3
+            class="w-full max-w-full overflow-x-auto text-end px-4 text-4xl font-light leading-normal text-black/50 dark:text-white/50"
+          >
+            123
+          </h3>
+          <h1
+            class="w-full max-w-full overflow-x-auto text-end px-4 text-8xl leading-normal text-black dark:text-white"
+          >
+            10.321
+          </h1>
+        </div>
+        <div class="flex flex-col w-full items-center gap-4 px-4">
+          <div class="flex gap-4 dark:text-white text-black w-full">
+            <div class="number dark:bg-zinc-600 bg-zinc-300">C</div>
+            <div class="number dark:bg-zinc-600 bg-zinc-300">
+              <i class="fa-solid fa-plus-minus"></i>
+            </div>
+            <div class="number dark:bg-zinc-600 bg-zinc-300">
+              <i class="fa-solid fa-percent"></i>
+            </div>
+            <div class="number bg-blue-600 text-white">
+              <i class="fa-solid fa-divide"></i>
+            </div>
+          </div>
+          <div class="flex gap-4 dark:text-white text-black w-full">
+            <div class="number dark:bg-zinc-800 bg-white">7</div>
+            <div class="number dark:bg-zinc-800 bg-white">8</div>
+            <div class="number dark:bg-zinc-800 bg-white">9</div>
+            <div class="number bg-blue-600 text-white">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+          </div>
+          <div class="flex gap-4 dark:text-white text-black w-full">
+            <div class="number dark:bg-zinc-800 bg-white">4</div>
+            <div class="number dark:bg-zinc-800 bg-white">5</div>
+            <div class="number dark:bg-zinc-800 bg-white">6</div>
+            <div class="number bg-blue-600 text-white">
+              <i class="fa-solid fa-minus"></i>
+            </div>
+          </div>
+          <div class="flex gap-4 dark:text-white text-black w-full">
+            <div class="number dark:bg-zinc-800 bg-white">1</div>
+            <div class="number dark:bg-zinc-800 bg-white">2</div>
+            <div class="number dark:bg-zinc-800 bg-white">3</div>
+            <div class="number bg-blue-600 text-white">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+          </div>
+          <div class="flex gap-4 dark:text-white text-black w-full">
+            <div class="number dark:bg-zinc-800 bg-white">.</div>
+            <div class="number dark:bg-zinc-800 bg-white">0</div>
+            <div class="number dark:bg-zinc-800 bg-white">
+              <i class="fa-solid fa-delete-left"></i>
+            </div>
+            <div class="number bg-blue-600 text-white">
+              <i class="fa-solid fa-equals"></i>
+            </div>
+          </div>
         </div>
       </div>
     </main>
