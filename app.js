@@ -1,3 +1,5 @@
+import Decimal from "decimal.js";
+
 const themeBtn = document.querySelector("#themeBtn");
 const currentNumber = document.querySelector("#currentNumber");
 const prevNumber = document.querySelector("#prevNumber");
@@ -44,6 +46,7 @@ function addToCurrentNumber(number) {
 }
 
 function changeClearType() {
+  if (currentNumber.textContent.length > 1) return;
   clearBtn.textContent = currentNumber.textContent.length > 0 ? "C" : "AC";
 }
 
@@ -54,30 +57,23 @@ function clear(type) {
 }
 
 function calculateNumbers() {
-  const operationTypes = {
-    "fa-divide": "/",
-    "fa-xmark": "*",
-    "fa-minus": "-",
-    "fa-plus": "+",
-  };
-
-  const firstNumber = parseFloat(prevNumber.textContent);
-  const secondNumber = parseFloat(currentNumber.textContent);
+  const firstNumber = new Decimal(prevNumber.textContent);
+  const secondNumber = new Decimal(currentNumber.textContent);
 
   let total;
 
   switch (currentOperation) {
     case "fa-divide":
-      total = firstNumber / secondNumber;
+      total = firstNumber.dividedBy(secondNumber);
       break;
     case "fa-xmark":
-      total = firstNumber * secondNumber;
+      total = firstNumber.times(secondNumber);
       break;
     case "fa-minus":
-      total = firstNumber - secondNumber;
+      total = firstNumber.minus(secondNumber);
       break;
     case "fa-plus":
-      total = firstNumber + secondNumber;
+      total = firstNumber.plus(secondNumber);
       break;
     default:
       total = (firstNumber / 100) * secondNumber;
@@ -98,8 +94,19 @@ operationBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
     const operation = btn.childNodes[1].classList.value.split(" ")[1];
     currentOperation = operation;
+
     if (operation === "fa-plus-minus" && currentNumber.textContent.length > 0) {
-      currentNumber.textContent = `-${currentNumber.textContent}`;
+      currentNumber.textContent = currentNumber.textContent.includes("-")
+        ? currentNumber.textContent.substring(1)
+        : `-${currentNumber.textContent}`;
+      return;
+    }
+
+    if (
+      prevNumber.textContent.length > 0 &&
+      currentNumber.textContent.length > 0
+    ) {
+      calculateNumbers();
     } else {
       prevNumber.textContent = currentNumber.textContent;
       currentNumber.textContent = "";
