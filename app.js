@@ -50,13 +50,14 @@ function changeClearType() {
   clearBtn.textContent = currentNumber.textContent.length > 0 ? "C" : "AC";
 }
 
-function clear(type) {
+function clear() {
   currentNumber.textContent = "";
-  if (type === "AC") prevNumber.textContent = "";
+  if (clearBtn.textContent === "AC") prevNumber.textContent = "";
   changeClearType();
 }
 
 function calculateNumbers() {
+  if (prevNumber.textContent.length === 0) return;
   const firstNumber = new Decimal(prevNumber.textContent);
   const secondNumber = new Decimal(currentNumber.textContent);
 
@@ -64,15 +65,19 @@ function calculateNumbers() {
 
   switch (currentOperation) {
     case "fa-divide":
+    case "/":
       total = firstNumber.dividedBy(secondNumber);
       break;
     case "fa-xmark":
+    case "*":
       total = firstNumber.times(secondNumber);
       break;
     case "fa-minus":
+    case "-":
       total = firstNumber.minus(secondNumber);
       break;
     case "fa-plus":
+    case "+":
       total = firstNumber.plus(secondNumber);
       break;
     default:
@@ -84,6 +89,38 @@ function calculateNumbers() {
   prevNumber.textContent = "";
 }
 
+function addOperation(operation) {
+  if (isCurrentNumberEmpty()) return;
+  currentOperation = operation;
+
+  if (operation === "fa-plus-minus" && currentNumber.textContent.length > 0) {
+    currentNumber.textContent = currentNumber.textContent.includes("-")
+      ? currentNumber.textContent.substring(1)
+      : `-${currentNumber.textContent}`;
+    return;
+  }
+
+  if (
+    prevNumber.textContent.length > 0 &&
+    currentNumber.textContent.length > 0
+  ) {
+    calculateNumbers();
+  } else {
+    prevNumber.textContent = currentNumber.textContent;
+    currentNumber.textContent = "";
+  }
+}
+
+function deleteNumber() {
+  if (isCurrentNumberEmpty()) return;
+  currentNumber.textContent = currentNumber.textContent.slice(0, -1);
+  if (isCurrentNumberEmpty()) changeClearType(); // only for when current number becomes empty.
+}
+
+function isCurrentNumberEmpty() {
+  return currentNumber.textContent.length === 0 ? true : false;
+}
+
 themeBtn.addEventListener("click", () => themeSwitch());
 
 numberBtn.forEach((btn) => {
@@ -91,34 +128,31 @@ numberBtn.forEach((btn) => {
 });
 
 operationBtn.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const operation = btn.childNodes[1].classList.value.split(" ")[1];
-    currentOperation = operation;
-
-    if (operation === "fa-plus-minus" && currentNumber.textContent.length > 0) {
-      currentNumber.textContent = currentNumber.textContent.includes("-")
-        ? currentNumber.textContent.substring(1)
-        : `-${currentNumber.textContent}`;
-      return;
-    }
-
-    if (
-      prevNumber.textContent.length > 0 &&
-      currentNumber.textContent.length > 0
-    ) {
-      calculateNumbers();
-    } else {
-      prevNumber.textContent = currentNumber.textContent;
-      currentNumber.textContent = "";
-    }
-  });
+  btn.addEventListener("click", () =>
+    addOperation(btn.childNodes[1].classList.value.split(" ")[1])
+  );
 });
 
-clearBtn.addEventListener("click", () => clear(clearBtn.textContent));
+clearBtn.addEventListener("click", clear);
 
-deleteBtn.addEventListener("click", () => {
-  currentNumber.textContent = currentNumber.textContent.slice(0, -1);
-  if (currentNumber.textContent.length === 0) changeClearType();
-});
+deleteBtn.addEventListener("click", deleteNumber);
 
 equalBtn.addEventListener("click", calculateNumbers);
+
+window.addEventListener("keydown", (ev) => {
+  const { key } = ev;
+  const allowedNumbers = "1234567890.";
+  const allowedOperations = "+-*/%";
+
+  if (allowedNumbers.includes(key)) {
+    addToCurrentNumber(key);
+  } else if (allowedOperations.includes(key)) {
+    addOperation(key);
+  } else if (key === "Enter") {
+    calculateNumbers();
+  } else if (key === "Backspace") {
+    deleteNumber();
+  } else if (key === "Escape") {
+    clear();
+  }
+});
