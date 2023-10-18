@@ -10,6 +10,7 @@ To prevent rounding errors of binary floating points i use [Decimal.js](https://
 - Operations, + - \* / % (no key for plus minus)
 - Delete one number, Backspace
 - Clear and clear all, ESC
+- Calculate, Enter
 
 ### Installation
 
